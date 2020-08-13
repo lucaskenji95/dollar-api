@@ -1,0 +1,48 @@
+spring:
+  application:
+    name: dolar-api
+  cloud:
+    kubernetes:
+      reload:
+        enabled: true
+        monitoring-secrets: true
+      secrets:
+        enable-api: true
+        labels:
+          app: dolar-api
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+          query:
+            plan_cache_max_size: 2048
+            plan_parameter_metadata_max_size: 32
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/dollardb
+    username: postgres
+    password: postgres1234
+  main:
+    allow-bean-definition-overriding: true
+
+
+---
+spring:
+  profiles: local
+  cloud:
+    kubernetes:
+      enabled: false
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+          query:
+            plan_cache_max_size: 2048
+            plan_parameter_metadata_max_size: 32
