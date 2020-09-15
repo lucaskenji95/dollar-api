@@ -47,7 +47,7 @@ class DollarServiceTest {
     }
 
     @Test
-    void shouldReturnThrowResponseStatusExceptionWhenThereIsNoValue() {
+    void shouldThrowResponseStatusExceptionWhenThereIsNoValue() {
         when(dollarRepository.findByDollarDate(any())).thenReturn(Optional.empty());
 
         assertThrows(ResponseStatusException.class, () -> dollarService.getDollarByDate("2020-07-01"));
