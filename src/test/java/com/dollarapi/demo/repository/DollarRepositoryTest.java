@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
+import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -31,8 +32,8 @@ class DollarRepositoryTest {
     @BeforeEach
     void setUp() throws ParseException {
         dollarRepository.deleteAll();
-        expectedDollar.setSell(4.5f);
-        expectedDollar.setBuy(4.6f);
+        expectedDollar.setSell(new BigDecimal("4.5"));
+        expectedDollar.setBuy(new BigDecimal("4.6"));
         expectedDollar.setDollarDate(dateFormat.parse(dateString));
         dollarRepository.save(expectedDollar);
     }

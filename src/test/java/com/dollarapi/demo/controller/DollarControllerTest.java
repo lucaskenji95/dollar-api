@@ -32,4 +32,5 @@ class DollarControllerTest {
 
         assertThat(responseDollarDto.getStatusCode()).isEqualTo(HttpStatus.OK);
     }
+
 }

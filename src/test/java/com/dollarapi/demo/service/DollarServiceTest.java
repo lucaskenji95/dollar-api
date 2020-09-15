@@ -11,6 +11,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.math.BigDecimal;
 import java.text.ParseException;
 import java.util.Optional;
 
@@ -31,11 +32,11 @@ class DollarServiceTest {
     @Test
     void shouldBuildDollarCorrectly() throws ParseException {
         DollarDto expectedDollarDto = DollarDto.builder()
-                                        .rate(RateDto.builder().sell(4.3f).buy(4.4f).build())
+                                        .rate(RateDto.builder().sell(new BigDecimal("4.3")).buy(new BigDecimal("4.4")).build())
                                         .build();
         Dollar dollar = new Dollar();
-        dollar.setBuy(4.4f);
-        dollar.setSell(4.3f);
+        dollar.setBuy(new BigDecimal("4.4"));
+        dollar.setSell(new BigDecimal("4.3"));
 
         when(dollarRepository.findByDollarDate(any())).thenReturn(Optional.of(dollar));
 

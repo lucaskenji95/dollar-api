@@ -1,6 +1,6 @@
 CREATE TABLE Dollar (
     id Serial,
     dollar_date date,
-    buy float(4),
-    sell float(4)
+    buy numeric(4,3),
+    sell numeric(4,3)
 );

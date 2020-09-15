@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
@@ -19,8 +20,8 @@ public class Dollar implements Serializable {
     @Column(name = "dollar_date")
     private Date dollarDate;
 
-    private Float buy;
+    private BigDecimal buy;
 
-    private Float sell;
+    private BigDecimal sell;
 
 }
