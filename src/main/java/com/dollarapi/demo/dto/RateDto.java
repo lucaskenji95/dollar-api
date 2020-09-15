@@ -14,9 +14,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 public class RateDto {
 
-    @JsonFormat(shape=JsonFormat.Shape.STRING)
     private BigDecimal buy;
 
-    @JsonFormat(pattern = "%.2f")
     private BigDecimal sell;
 }
